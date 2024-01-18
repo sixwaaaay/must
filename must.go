@@ -34,3 +34,11 @@ func RunE(err error) {
 		panic(err)
 	}
 }
+
+// Run panics if err is not nil.
+// use this to avoid if err != nil { panic(err) } boilerplate in main()
+func Run(f func() error) {
+	if err := f(); err != nil {
+		panic(err)
+	}
+}
